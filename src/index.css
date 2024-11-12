@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Libreville Baskerville';
+    src: url('/assets/fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  @font-face {
+    font-family: 'Libreville Baskerville';
+    src: url('/assets/fonts/Libre_Baskerville/LibreBaskerville-Bold.ttf') format('truetype');
+    font-weight: bold;
+  }
+
+  html {
+    font-family: 'Libreville Baskerville', sytem-ui, serif;
+  }
+}
