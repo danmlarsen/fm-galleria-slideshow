@@ -1,8 +1,15 @@
+import GalleryGrid from './components/GalleryGrid';
+import Header from './components/Header';
+import { SlideshowContextProvider } from './context/SlideshowContext';
+
 function App() {
   return (
-    <div className="min-h-screen grid place-items-center bg-white">
-      <h1 className="text-black text-heading1">Hello, World!</h1>
-    </div>
+    <SlideshowContextProvider>
+      <div className="container max-w-[1360px] mx-auto min-h-screen bg-white">
+        <Header />
+        <GalleryGrid />
+      </div>
+    </SlideshowContextProvider>
   );
 }
 
