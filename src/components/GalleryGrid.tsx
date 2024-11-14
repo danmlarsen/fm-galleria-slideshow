@@ -1,16 +1,15 @@
-import galleryData from '../assets/data.json';
+import { useContext } from 'react';
 
 import GalleryGridImage from './GalleryGridImage';
-
-export type GalleryDataArrayType = typeof galleryData;
-
-export type GalleryDataType = GalleryDataArrayType[0];
+import { SlideshowContext } from '../context/SlideshowContext';
 
 export default function GalleryGrid() {
+  const { galleryData, setCurrentSlide } = useContext(SlideshowContext)!;
+
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(310px,1fr))] auto-rows-[10px] grid-flow-dense gap-10 justify-items-center">
-      {galleryData.map(image => (
-        <GalleryGridImage key={image.name} image={image} />
+    <div className="grid grid-cols-[repeat(auto-fill,310px)] auto-rows-[5px] gap-10 grid-flow-dense justify-center ">
+      {galleryData.map((image, index) => (
+        <GalleryGridImage key={image.name} image={image} onClick={() => setCurrentSlide(index)} />
       ))}
     </div>
   );
