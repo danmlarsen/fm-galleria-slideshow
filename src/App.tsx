@@ -5,12 +5,14 @@ import { SlideshowContext } from './context/SlideshowContext';
 import GallerySlide from './components/GallerySlide';
 
 function App() {
-  const { currentSlide } = useContext(SlideshowContext)!;
+  const {
+    state: { slideshowStarted },
+  } = useContext(SlideshowContext)!;
 
   return (
     <div className="container max-w-[1360px] mx-auto min-h-screen bg-white text-body grid grid-rows-[auto,1fr]">
       <Header />
-      {currentSlide === -1 ? <GalleryGrid /> : <GallerySlide />}
+      {slideshowStarted ? <GallerySlide /> : <GalleryGrid />}
     </div>
   );
 }

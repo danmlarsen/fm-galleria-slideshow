@@ -3,7 +3,9 @@ import { SlideshowContext } from '../context/SlideshowContext';
 import GallerySlideButtons from './GallerySlideButtons';
 
 export default function GallerySlideNavigation() {
-  const { galleryData, currentSlide } = useContext(SlideshowContext)!;
+  const {
+    state: { galleryData, currentSlide },
+  } = useContext(SlideshowContext)!;
 
   const image = galleryData[currentSlide];
 

@@ -1,39 +1,44 @@
-import { createContext, useState } from 'react';
+import { createContext, Dispatch, useReducer } from 'react';
 
 import galleryData from '../assets/data.json';
-
-type SlideshowContextType = {
-  galleryData: GalleryDataArrayType;
-  slideshowStarted: boolean;
-  setSlideshowStarted: (value: boolean | ((prevState: boolean) => boolean)) => void;
-  currentSlide: number;
-  setCurrentSlide: (value: number | ((prevState: number) => number)) => void;
-  nextSlide: () => void;
-  prevSlide: () => void;
-};
 
 export type GalleryDataArrayType = typeof galleryData;
 export type GalleryDataType = GalleryDataArrayType[0];
 
+const initialState = {
+  currentSlide: -1,
+  slideshowStarted: false,
+  galleryData,
+};
+
+type SlideshowContextType = {
+  state: typeof initialState;
+  dispatch: Dispatch<SlideshowAction>;
+};
+
+type SlideshowAction = { type: 'startSlideshow'; payload?: number } | { type: 'stopSlideshow' } | { type: 'nextSlide' } | { type: 'prevSlide' };
+
+function reducer(state: typeof initialState, action: SlideshowAction) {
+  switch (action.type) {
+    case 'startSlideshow':
+      console.log(action.payload);
+
+      return { ...state, currentSlide: action.payload ?? state.currentSlide, slideshowStarted: true };
+    case 'stopSlideshow':
+      return { ...state, slideshowStarted: false };
+    case 'nextSlide':
+      return { ...state, currentSlide: state.currentSlide >= state.galleryData.length ? state.currentSlide : state.currentSlide + 1 };
+    case 'prevSlide':
+      return { ...state, currentSlide: state.currentSlide <= 0 ? 0 : state.currentSlide - 1 };
+    default:
+      return state;
+  }
+}
+
 export const SlideshowContext = createContext<SlideshowContextType | null>(null);
 
 export function SlideshowContextProvider({ children }: { children: React.ReactNode }) {
-  const [slideshowStarted, setSlideshowStarted] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(-1);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  function nextSlide() {
-    if (currentSlide >= galleryData.length) return;
-    setCurrentSlide(prev => prev + 1);
-  }
-
-  function prevSlide() {
-    if (currentSlide === 0) return;
-    setCurrentSlide(prev => prev - 1);
-  }
-
-  return (
-    <SlideshowContext.Provider value={{ galleryData, currentSlide, setCurrentSlide, slideshowStarted, setSlideshowStarted, nextSlide, prevSlide }}>
-      {children}
-    </SlideshowContext.Provider>
-  );
+  return <SlideshowContext.Provider value={{ state, dispatch }}>{children}</SlideshowContext.Provider>;
 }
