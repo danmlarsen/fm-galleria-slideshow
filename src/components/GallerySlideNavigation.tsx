@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import { SlideshowContext } from '../context/SlideshowContext';
-import GallerySlideButtons from './GallerySlideButtons';
+import { useContext } from "react";
+import { SlideshowContext } from "../context/SlideshowContext";
+import GallerySlideButtons from "./GallerySlideButtons";
 
 export default function GallerySlideNavigation() {
   const {
@@ -15,7 +15,10 @@ export default function GallerySlideNavigation() {
   return (
     <div className="mt-20">
       <div className="h-[1px] bg-gray-300">
-        <div className="h-[1px] bg-black transition-all duration-300" style={{ width: `${progressBarWidth}%` }}></div>
+        <div
+          className="h-[1px] bg-black transition-all duration-300"
+          style={{ width: `${progressBarWidth}%` }}
+        ></div>
       </div>
       <div className="flex items-center justify-between py-6">
         <div className="space-y-2">

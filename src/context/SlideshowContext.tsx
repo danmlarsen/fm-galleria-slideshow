@@ -21,8 +21,6 @@ type SlideshowAction = { type: 'startSlideshow'; payload?: number } | { type: 's
 function reducer(state: typeof initialState, action: SlideshowAction) {
   switch (action.type) {
     case 'startSlideshow':
-      console.log(action.payload);
-
       return { ...state, currentSlide: action.payload ?? state.currentSlide, slideshowStarted: true };
     case 'stopSlideshow':
       return { ...state, slideshowStarted: false };

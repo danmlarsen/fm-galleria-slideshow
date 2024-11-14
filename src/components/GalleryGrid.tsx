@@ -1,7 +1,7 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 
-import GalleryGridImage from './GalleryGridImage';
-import { SlideshowContext } from '../context/SlideshowContext';
+import GalleryGridImage from "./GalleryGridImage";
+import { SlideshowContext } from "../context/SlideshowContext";
 
 export default function GalleryGrid() {
   const {
@@ -10,9 +10,13 @@ export default function GalleryGrid() {
   } = useContext(SlideshowContext)!;
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,310px)] auto-rows-[5px] gap-10 grid-flow-dense justify-center ">
+    <div className="grid grid-flow-dense auto-rows-[5px] grid-cols-[repeat(auto-fill,310px)] justify-center gap-10">
       {galleryData.map((image, index) => (
-        <GalleryGridImage key={image.name} image={image} onClick={() => dispatch({ type: 'startSlideshow', payload: index })} />
+        <GalleryGridImage
+          key={image.name}
+          image={image}
+          onClick={() => dispatch({ type: "startSlideshow", payload: index })}
+        />
       ))}
     </div>
   );

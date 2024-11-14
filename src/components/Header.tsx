@@ -1,9 +1,9 @@
-import Logo from './Logo';
-import SlideshowButton from './SlideshowButton';
+import Logo from "./Logo";
+import SlideshowButton from "./SlideshowButton";
 
 export default function Header() {
   return (
-    <header className="flex justify-between py-10 border-b border-b-gray-300 mb-10">
+    <header className="mb-10 flex justify-between border-b border-b-gray-300 py-10">
       <div>
         <Logo />
       </div>
