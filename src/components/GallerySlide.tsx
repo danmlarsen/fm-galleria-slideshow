@@ -25,7 +25,7 @@ export default function GallerySlide() {
           document.body,
         )}
       <article>
-        <div className="grid min-h-[624px] grid-cols-[855px_auto] gap-8">
+        <div className="grid min-h-[624px] gap-8 lg:grid-cols-[855px_auto]">
           <div className="relative flex items-start gap-8">
             <div className="absolute -top-1 right-0 z-10 w-[445px] space-y-6 bg-white px-16 pb-16">
               <h1 className="text-heading1">{image.name}</h1>
