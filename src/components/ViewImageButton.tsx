@@ -7,7 +7,7 @@ type AppProps = {
 export default function ViewImageButton({ onClick }: AppProps) {
   return (
     <button
-      className="absolute bottom-4 left-4 flex items-center gap-4 bg-black/75 px-4 py-[14px] text-link2 uppercase text-white transition duration-300 hover:bg-white/25"
+      className="absolute left-4 top-4 flex min-h-[40px] items-center gap-4 bg-black/75 px-4 text-link2 uppercase text-white transition duration-300 hover:bg-white/25 md:bottom-4 md:top-auto"
       onClick={onClick}
     >
       <img src={IconViewImage} alt="Expand icon" />
