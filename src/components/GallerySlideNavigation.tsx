@@ -20,7 +20,7 @@ export default function GallerySlideNavigation() {
           style={{ width: `${progressBarWidth}%` }}
         ></div>
       </div>
-      <div className="flex items-center justify-between py-6">
+      <div className="flex items-center justify-between px-6 py-6 md:px-10">
         <div className="space-y-2">
           <h4 className="text-heading3">{image.name}</h4>
           <h5 className="text-subhead2">{image.artist.name}</h5>

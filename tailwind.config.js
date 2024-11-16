@@ -11,7 +11,8 @@ export default {
         },
       },
       screens: {
-        lg: "1440px",
+        sm: "435px",
+        md: "768px",
       },
     },
     fontSize: {
