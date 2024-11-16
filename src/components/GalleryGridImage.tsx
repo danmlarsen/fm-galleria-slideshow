@@ -15,18 +15,45 @@ export default function GalleryGridImage({ image, onClick }: AppProps) {
     const rowGap = 40;
 
     const rowSpan = Math.ceil(
-      (img.naturalHeight + rowGap) / (rowHeight + rowGap),
+      (img.naturalHeight + rowGap) / rowHeight,
+      // (img.naturalHeight + rowGap) / (rowHeight + rowGap),
     );
     setRowSpan(rowSpan);
   }
 
+  let colStart;
+  if (image.name === "The Sleeping Gypsy") {
+    colStart = " lg:col-start-4";
+  }
+  if (image.name === "The Great Wave off Kanagawa") {
+    colStart = " lg:col-start-2";
+  }
+  if (image.name === "Van Gogh Self-portrait") {
+    colStart = " lg:col-start-3";
+  }
+  if (image.name === "Lady with an Ermine") {
+    colStart = "md:col-start-1";
+  }
+  if (image.name === "The Night Café") {
+    colStart = "md:col-start-2";
+  }
+  if (image.name === "The Basket of Apples") {
+    colStart = " lg:col-start-4";
+  }
+  if (image.name === "The Boy in the Red Vest") {
+    colStart = " lg:col-start-1";
+  }
+  if (image.name === "Arnolfini Portrait") {
+    colStart = " lg:col-start-2";
+  }
+
   return (
     <div
-      className={`group col-span-1`}
+      className={`col-span-1 pb-10 ${colStart ? `${colStart}` : ""}`}
       style={{ gridRowEnd: `span ${rowSpan}` }}
     >
       <figure
-        className="relative h-full cursor-pointer overflow-hidden"
+        className="group relative h-full cursor-pointer overflow-hidden"
         onClick={onClick}
       >
         <div className="absolute -inset-1 z-10 bg-white/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>

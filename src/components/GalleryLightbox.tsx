@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { GalleryDataType } from "../context/SlideshowContext";
 
 type AppProps = {
@@ -6,24 +7,32 @@ type AppProps = {
 };
 
 export default function GalleryLightbox({ image, onClose }: AppProps) {
+  const imgRef = useRef(null);
+
+  function handleClick(e: React.SyntheticEvent<HTMLElement>) {
+    if (e.target !== imgRef.current) {
+      onClose();
+    }
+  }
+
   return (
-    <>
-      <div className="fixed inset-0 z-40 bg-black/85"></div>
-      <div className="fixed inset-0 z-50 grid place-items-center">
-        <div className="mx-6 space-y-10">
-          <div className="flex justify-end">
-            <button
-              className="text-[14px] text-link1 uppercase text-white"
-              onClick={onClose}
-            >
-              Close
-            </button>
-          </div>
-          <div>
-            <img src={image.images.gallery} alt={image.name} />
-          </div>
+    <div
+      className="fixed inset-0 z-50 grid place-items-center bg-black/85"
+      onClick={handleClick}
+    >
+      <div className="mx-6 space-y-10">
+        <div className="flex justify-end">
+          <button
+            className="text-[14px] text-link1 uppercase text-white"
+            onClick={handleClick}
+          >
+            Close
+          </button>
+        </div>
+        <div>
+          <img ref={imgRef} src={image.images.gallery} alt={image.name} />
         </div>
       </div>
-    </>
+    </div>
   );
 }

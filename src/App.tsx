@@ -10,9 +10,11 @@ function App() {
   } = useContext(SlideshowContext)!;
 
   return (
-    <div className="container mx-auto grid min-h-screen max-w-[1360px] grid-rows-[auto,1fr] bg-white text-body">
-      <Header />
-      {slideshowStarted ? <GallerySlide /> : <GalleryGrid />}
+    <div className="px-6 md:px-10">
+      <div className="container mx-auto grid min-h-screen max-w-[1360px] grid-rows-[auto,1fr] bg-white text-body">
+        <Header />
+        {slideshowStarted ? <GallerySlide /> : <GalleryGrid />}
+      </div>
     </div>
   );
 }
