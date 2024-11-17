@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { SlideshowContext } from "../context/SlideshowContext";
@@ -14,7 +14,7 @@ const { theme } = resolveConfig(tailwindConfig);
 const slideVariants = {
   enter: (direction: number) => ({
     opacity: 0,
-    x: direction >= 0 ? "100%" : "-100%",
+    x: direction === 0 ? 0 : direction >= 0 ? "100%" : "-100%",
   }),
   center: {
     opacity: 1,
@@ -28,6 +28,12 @@ const slideVariants = {
 
 export default function GallerySlide() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
 
   const {
     state: { galleryData, currentSlide, direction },
