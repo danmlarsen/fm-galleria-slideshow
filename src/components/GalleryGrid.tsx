@@ -10,7 +10,7 @@ export default function GalleryGrid() {
   } = useContext(SlideshowContext)!;
 
   return (
-    <div className="grid grid-flow-dense auto-rows-[5px] grid-cols-[repeat(auto-fill,310px)] justify-center gap-x-10">
+    <div className="container mx-auto grid grid-flow-dense auto-rows-[5px] grid-cols-[repeat(auto-fill,310px)] justify-center gap-x-10">
       {galleryData.map((image, index) => (
         <GalleryGridImage
           key={image.name}

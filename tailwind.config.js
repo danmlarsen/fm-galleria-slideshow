@@ -13,6 +13,8 @@ export default {
       screens: {
         sm: "435px",
         md: "768px",
+        lg: "1080px",
+        xl: "1360px",
       },
     },
     fontSize: {

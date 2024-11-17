@@ -23,13 +23,13 @@ export default function GalleryGridImage({ image, onClick }: AppProps) {
 
   let colStart;
   if (image.name === "The Sleeping Gypsy") {
-    colStart = " lg:col-start-4";
+    colStart = " xl:col-start-4";
   }
   if (image.name === "The Great Wave off Kanagawa") {
     colStart = " lg:col-start-2";
   }
   if (image.name === "Van Gogh Self-portrait") {
-    colStart = " lg:col-start-3";
+    colStart = " xl:col-start-3";
   }
   if (image.name === "Lady with an Ermine") {
     colStart = "md:col-start-1";
@@ -38,7 +38,7 @@ export default function GalleryGridImage({ image, onClick }: AppProps) {
     colStart = "md:col-start-2";
   }
   if (image.name === "The Basket of Apples") {
-    colStart = " lg:col-start-4";
+    colStart = " xl:col-start-4";
   }
   if (image.name === "The Boy in the Red Vest") {
     colStart = " lg:col-start-1";
