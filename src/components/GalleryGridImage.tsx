@@ -1,5 +1,17 @@
 import { useState } from "react";
+import { motion } from "motion/react";
 import { GalleryDataType } from "../context/SlideshowContext";
+
+const itemVariant = {
+  hidden: { opacity: 0, y: "20px" },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: "easeInOut",
+    },
+  },
+};
 
 type AppProps = {
   image: GalleryDataType;
@@ -48,7 +60,9 @@ export default function GalleryGridImage({ image, onClick }: AppProps) {
   }
 
   return (
-    <div
+    <motion.div
+      key={image.name}
+      variants={itemVariant}
       className={`col-span-1 pb-10 ${colStart ? `${colStart}` : ""}`}
       style={{ gridRowEnd: `span ${rowSpan}` }}
     >
@@ -68,6 +82,6 @@ export default function GalleryGridImage({ image, onClick }: AppProps) {
           <p className="text-subhead2 text-white/75">{image.artist.name}</p>
         </figcaption>
       </figure>
-    </div>
+    </motion.div>
   );
 }

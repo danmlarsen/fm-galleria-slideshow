@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import { motion } from "motion/react";
+
 import { GalleryDataType } from "../context/SlideshowContext";
 
 type AppProps = {
@@ -16,23 +18,41 @@ export default function GalleryLightbox({ image, onClose }: AppProps) {
   }
 
   return (
-    <div
-      className="fixed inset-0 z-50 grid place-items-center bg-black/85"
-      onClick={handleClick}
-    >
-      <div className="mx-6 space-y-10">
-        <div className="flex justify-end">
-          <button
-            className="text-[14px] text-link1 uppercase text-white"
-            onClick={handleClick}
-          >
-            Close
-          </button>
+    <>
+      <motion.div
+        key="backdrop"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-30 bg-black/85"
+      ></motion.div>
+      <motion.div
+        key="lightbox"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 grid place-items-center"
+        onClick={handleClick}
+      >
+        <div className="m-6 grid max-h-dvh grid-rows-[auto,1fr] gap-10">
+          <div className="flex justify-end">
+            <button
+              className="text-[14px] text-link1 uppercase text-white"
+              onClick={handleClick}
+            >
+              Close
+            </button>
+          </div>
+          <div className="flex">
+            <img
+              className="h-full max-h-[85vh] w-auto object-cover"
+              ref={imgRef}
+              src={image.images.gallery}
+              alt={image.name}
+            />
+          </div>
         </div>
-        <div>
-          <img ref={imgRef} src={image.images.gallery} alt={image.name} />
-        </div>
-      </div>
-    </div>
+      </motion.div>
+    </>
   );
 }

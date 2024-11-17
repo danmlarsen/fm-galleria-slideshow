@@ -1,7 +1,20 @@
 import { useContext } from "react";
+import { motion } from "motion/react";
 
 import GalleryGridImage from "./GalleryGridImage";
 import { SlideshowContext } from "../context/SlideshowContext";
+
+const containerVariants = {
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
 
 export default function GalleryGrid() {
   const {
@@ -10,15 +23,21 @@ export default function GalleryGrid() {
   } = useContext(SlideshowContext)!;
 
   return (
-    <div className="container mx-auto grid grid-flow-dense auto-rows-[5px] grid-cols-[repeat(auto-fill,310px)] justify-center gap-x-10">
+    <motion.div
+      key="GalleryGrid"
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+      exit="hidden"
+      className="container mx-auto grid grid-flow-dense auto-rows-[5px] justify-center gap-x-10 md:grid-cols-[repeat(auto-fill,310px)]"
+    >
       {galleryData.map((image, index) => (
         <GalleryGridImage
           key={image.name}
           image={image}
-          // order={index + 1}
           onClick={() => dispatch({ type: "startSlideshow", payload: index })}
         />
       ))}
-    </div>
+    </motion.div>
   );
 }

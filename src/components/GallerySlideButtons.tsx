@@ -9,7 +9,7 @@ export default function GallerySlideButtons() {
   } = useContext(SlideshowContext)!;
 
   return (
-    <div className="flex gap-10">
+    <div className="flex gap-6 md:gap-10">
       <MediaButton
         direction="back"
         onClick={() => dispatch({ type: "prevSlide" })}
