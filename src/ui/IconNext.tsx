@@ -6,6 +6,7 @@ export default function IconNext({ className }: { className?: string }) {
       height="24"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Right arrow icon</title>
       <g fill="none" fillRule="evenodd">
         <path
           d="M1.528 1.843l20.538 10.27L1.528 22.382V1.843z"

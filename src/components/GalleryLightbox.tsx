@@ -37,7 +37,7 @@ export default function GalleryLightbox({ image, onClose }: AppProps) {
         <div className="m-6 grid max-h-dvh grid-rows-[auto,1fr] gap-10">
           <div className="flex justify-end">
             <button
-              className="text-[14px] text-link1 uppercase text-white"
+              className="text-[0.875rem] text-link1 uppercase text-white transition-opacity duration-300 hover:opacity-25 focus:text-black focus:outline-none focus:ring-black focus-visible:ring-2 focus-visible:ring-offset-4"
               onClick={handleClick}
             >
               Close

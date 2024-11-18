@@ -29,7 +29,7 @@ export default function GalleryGrid() {
       initial="hidden"
       animate="show"
       exit="hidden"
-      className="container mx-auto grid grid-flow-dense auto-rows-[5px] justify-center gap-x-10 md:grid-cols-[repeat(auto-fill,310px)]"
+      className="container mx-auto grid grid-flow-dense auto-rows-[5px] justify-center gap-x-10 md:grid-cols-[repeat(auto-fill,19.375rem)]"
     >
       {galleryData.map((image, index) => (
         <GalleryGridImage

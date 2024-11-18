@@ -16,6 +16,9 @@ export default {
         lg: "1080px",
         xl: "1360px",
       },
+      maxWidth: {
+        "8xl": "85rem",
+      },
     },
     fontSize: {
       body: [

@@ -3,7 +3,7 @@ import SlideshowButton from "./SlideshowButton";
 
 export default function Header() {
   return (
-    <header className="mb-10 flex items-center justify-between border-b border-b-gray-300 px-6 py-10">
+    <header className="mb-10 flex items-center justify-between border-b border-b-gray-300 px-6 py-10 xl:px-0">
       <div>
         <Logo />
       </div>

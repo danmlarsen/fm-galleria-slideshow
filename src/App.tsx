@@ -11,8 +11,8 @@ function App() {
   } = useContext(SlideshowContext)!;
 
   return (
-    <div className="">
-      <div className="container mx-auto grid min-h-screen max-w-[1360px] grid-rows-[auto,1fr] overflow-hidden bg-white text-body">
+    <div>
+      <div className="max-w-8xl container mx-auto grid min-h-screen grid-rows-[auto,1fr] bg-white text-body">
         <Header />
         <AnimatePresence mode="wait">
           {slideshowStarted ? <GallerySlide /> : <GalleryGrid />}
