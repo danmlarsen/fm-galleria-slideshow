@@ -5,11 +5,7 @@ import { SlideshowContext } from "../context/SlideshowContext";
 import GallerySlideNavigation from "./GallerySlideNavigation";
 import ViewImageButton from "./ViewImageButton";
 import GalleryLightbox from "./GalleryLightbox";
-
-import resolveConfig from "tailwindcss/resolveConfig";
-// @ts-expect-error ...
-import tailwindConfig from "../../tailwind.config.js";
-const { theme } = resolveConfig(tailwindConfig);
+import ProgressiveImage from "./ProgressiveImage.js";
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -74,17 +70,7 @@ export default function GallerySlide() {
           >
             <div className="relative h-[24.875rem] md:h-auto">
               <div className="relative max-w-[29.6875rem]">
-                <picture>
-                  <source
-                    srcSet={image.images.hero.large}
-                    media={`(min-width: ${theme.screens.md})`}
-                  />
-                  <img
-                    className="object-cover md:h-[35rem] md:w-[29.6875rem]"
-                    src={image.images.hero.small}
-                    alt={`Painting: ${image.name}`}
-                  />
-                </picture>
+                <ProgressiveImage image={image} />
                 <ViewImageButton onClick={() => setLightboxOpen(true)} />
               </div>
               <div className="absolute -bottom-1 -left-1 md:-top-1 md:bottom-auto md:left-auto md:right-0 lg:flex lg:h-full lg:flex-col lg:justify-between">
