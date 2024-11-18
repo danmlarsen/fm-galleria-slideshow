@@ -23,7 +23,7 @@ export default function GalleryGrid() {
   } = useContext(SlideshowContext)!;
 
   return (
-    <motion.div
+    <motion.main
       key="GalleryGrid"
       variants={containerVariants}
       initial="hidden"
@@ -38,6 +38,6 @@ export default function GalleryGrid() {
           onClick={() => dispatch({ type: "startSlideshow", payload: index })}
         />
       ))}
-    </motion.div>
+    </motion.main>
   );
 }

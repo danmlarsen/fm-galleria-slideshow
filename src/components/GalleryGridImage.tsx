@@ -97,7 +97,7 @@ export default function GalleryGridImage({
         onClick={handleClick}
         onKeyDown={handleKeydown}
         tabIndex={0}
-        role="button"
+        role="link"
       >
         <div className="absolute -inset-1 z-10 bg-white/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
         <img

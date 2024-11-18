@@ -55,7 +55,7 @@ export default function GallerySlide() {
         document.body,
       )}
 
-      <motion.div
+      <motion.main
         className="relative mb-24 min-h-[62.5rem] overflow-x-clip md:min-h-[68.75rem] lg:min-h-[40.625rem]"
         key="GallerySlide"
         initial={{ opacity: 0 }}
@@ -89,12 +89,12 @@ export default function GallerySlide() {
               </div>
               <div className="absolute -bottom-1 -left-1 md:-top-1 md:bottom-auto md:left-auto md:right-0 lg:flex lg:h-full lg:flex-col lg:justify-between">
                 <div className="w-[17.5rem] space-y-2 bg-white p-6 md:w-[27.8125rem] md:px-[4.0625rem] md:pb-[4.0625rem] md:pt-0 lg:pr-6">
-                  <h1 className="text-heading2 md:text-heading1 lg:text-heading2 xl:text-heading1">
+                  <h2 className="text-heading2 md:text-heading1 lg:text-heading2 xl:text-heading1">
                     {image.name}
-                  </h1>
-                  <h2 className="text-subhead1 text-gray-500">
-                    {image.artist.name}
                   </h2>
+                  <h3 className="text-subhead1 text-gray-500">
+                    {image.artist.name}
+                  </h3>
                 </div>
                 <div className="px-4 md:flex md:justify-end md:pr-[5.4375rem] lg:pr-0 xl:items-end xl:justify-start xl:pl-32">
                   <img
@@ -107,9 +107,9 @@ export default function GallerySlide() {
             </div>
 
             <div className="relative max-w-[35.75rem]">
-              <h3 className="absolute right-0 top-0 -translate-y-5 text-display2 text-gray-100 md:left-0 md:right-auto md:-translate-y-2 md:text-display1 lg:left-auto lg:right-0 lg:text-display2 xl:text-display1">
+              <h2 className="absolute right-0 top-0 -translate-y-5 text-display2 text-gray-100 md:left-0 md:right-auto md:-translate-y-2 md:text-display1 lg:left-auto lg:right-0 lg:text-display2 xl:text-display1">
                 {image.year}
-              </h3>
+              </h2>
               <div className="relative z-10 flex h-full max-w-[28.5625rem] flex-col items-start justify-between gap-4 pb-14 pt-[6.5625rem] md:ml-auto lg:ml-0 lg:max-w-[21.875rem]">
                 <p className="text-gray-500">{image.description}</p>
                 <a
@@ -123,7 +123,7 @@ export default function GallerySlide() {
             </div>
           </motion.article>
         </AnimatePresence>
-      </motion.div>
+      </motion.main>
       <GallerySlideNavigation />
     </>
   );
