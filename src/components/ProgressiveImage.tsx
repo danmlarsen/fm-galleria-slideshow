@@ -35,7 +35,7 @@ export default function ProgressiveImage({ image }: AppProps) {
 
   return (
     <img
-      className={`h-[17.5rem] w-full object-cover transition duration-500 ease-linear md:h-[35rem] md:w-[29.6875rem] ${isLoading ? "blur-sm" : ""}`}
+      className={`h-[17.5rem] w-full object-cover transition duration-200 ease-linear md:h-[35rem] md:w-[29.6875rem] ${isLoading ? "blur-sm" : ""}`}
       src={imgSrc}
       alt={`Painting: ${image.name}`}
     />
